@@ -47,12 +47,10 @@
     const synth = window.speechSynthesis;
     document.getElementById('currentTime').addEventListener('click', () => {
         let sayThis = new SpeechSynthesisUtterance("The current time is " + currentTime);
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-            sayThis.voice = synth.getVoices()[0];
-        } else {
+        // Test for mobile -> Set default if mobile
+        if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
             sayThis.voice = synth.getVoices()[48];
-        }
-        
+        } 
         synth.speak(sayThis);
     });
 </script>
