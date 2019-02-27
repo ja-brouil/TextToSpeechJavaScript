@@ -48,6 +48,7 @@
     document.getElementById('currentTime').addEventListener('click', () => {
         let sayThis = new SpeechSynthesisUtterance("The current time is " + currentTime);
         // Test for mobile -> Set default if mobile
+        console.log(synth.getVoices());
         if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
             sayThis.voice = synth.getVoices()[48];
         } 
